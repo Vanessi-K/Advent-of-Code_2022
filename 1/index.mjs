@@ -1,7 +1,7 @@
 import {fileToArray} from "../scripts/readfile.mjs";
-import {sumArray, highestValueInArray} from "../scripts/arrayHandling.mjs";
+import {sumArray, highestValueInArray, nHighestValuesInArray} from "../scripts/arrayHandling.mjs";
 
-const elfCalories = fileToArray("./input-1.txt")
+const elfCalories = fileToArray("./input_1.txt")
 
 const sumOfElfCalories = elfCalories.reduce((acc, calories) => {
     acc.push(sumArray(calories))
@@ -9,5 +9,7 @@ const sumOfElfCalories = elfCalories.reduce((acc, calories) => {
 }, [])
 
 const maxCalories = highestValueInArray(sumOfElfCalories)
+const maxCaloriesN = nHighestValuesInArray(sumOfElfCalories, 3)
 
 console.log(maxCalories)
+console.log(sumArray(maxCaloriesN))
