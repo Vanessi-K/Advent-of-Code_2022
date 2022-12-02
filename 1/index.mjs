@@ -1,7 +1,7 @@
-import {fileToArray} from "../scripts/readfile.mjs";
+import {groupByEmptyLineArray} from "../scripts/readfile.mjs";
 import {sumArray, highestValueInArray, nHighestValuesInArray} from "../scripts/arrayHandling.mjs";
 
-const elfCalories = fileToArray("./input_1.txt")
+const elfCalories = groupByEmptyLineArray("./input_1.txt")
 
 const sumOfElfCalories = elfCalories.reduce((acc, calories) => {
     acc.push(sumArray(calories))

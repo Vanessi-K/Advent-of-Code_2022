@@ -1,11 +1,12 @@
 import read from 'read-file';
+import {sumArray} from "./arrayHandling.mjs";
 
 function readfile(file) {
     const buffer = read.sync(file, "utf8");
     return buffer;
 }
 
-export function fileToArray(file) {
+export function groupByEmptyLineArray(file) {
     const buffer = readfile(file)
     const splitArray = buffer.split(/\r?\n/);
 
@@ -21,4 +22,11 @@ export function fileToArray(file) {
     })
 
     return groupedArray;
+}
+
+export function groupByLineArray(file) {
+    const buffer = readfile(file)
+    const splitArray = buffer.split(/\r?\n/);
+
+    return splitArray;
 }
