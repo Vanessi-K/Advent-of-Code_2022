@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "read-file": "^0.2.0"
+  }
+}
