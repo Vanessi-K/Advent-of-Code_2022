@@ -49,3 +49,7 @@ export function firstElements(arrays) {
         return acc;
     }, "")
 }
+
+export function onlyUniqueElements(arr) {
+    return new Set(arr).size === arr.length;
+}

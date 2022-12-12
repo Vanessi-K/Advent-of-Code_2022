@@ -1,13 +1,13 @@
 import read from 'read-file';
 import {sumArray} from "./arrayHandling.mjs";
 
-function readfile(file) {
+export function readFile(file) {
     const buffer = read.sync(file, "utf8");
     return buffer;
 }
 
 export function groupByEmptyLineArray(file) {
-    const buffer = readfile(file)
+    const buffer = readFile(file)
     const splitArray = buffer.split(/\r?\n/);
 
     let groupedArray = [];
@@ -25,7 +25,7 @@ export function groupByEmptyLineArray(file) {
 }
 
 export function groupByLineArray(file) {
-    const buffer = readfile(file)
+    const buffer = readFile(file)
     const splitArray = buffer.split(/\r?\n/);
 
     return splitArray;
@@ -43,9 +43,11 @@ export function splitLineByComma(file) {
 }
 
 export function readStackedString(file) {
-    let buffer = readfile(file);
+    let buffer = readFile(file);
     buffer = buffer.replace(/    /g, "[ ] ");
 
     return buffer;
 }
+
+
 
