@@ -23,3 +23,29 @@ export function nHighestValuesInArray(array, n) {
     return highestValues;
 }
 
+export function stackedStringToArray(stringStack) {
+    const lines = stringStack.replace(/ /g, "").split(/\r?\n/);
+    const singleStacks = lines.reduce((acc, line) => {
+        let singleLine = line.replace("[]","[-]")
+        acc.push(singleLine.slice(1, -1).split("]["))
+        return acc;
+    },[])
+    return singleStacks;
+}
+
+export function greatestLength(arrays) {
+    let length = 0;
+
+    arrays.forEach(array => {
+        if(array.length > length) length = array.length;
+    })
+
+    return length;
+}
+
+export function firstElements(arrays) {
+    return arrays.reduce((acc, array) => {
+        acc += array[0];
+        return acc;
+    }, "")
+}

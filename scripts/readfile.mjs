@@ -30,3 +30,22 @@ export function groupByLineArray(file) {
 
     return splitArray;
 }
+
+export function splitLineByComma(file) {
+    const lines = groupByLineArray(file)
+
+    const splittedLines = lines.reduce((acc, line) => {
+        acc.push(line.split(","))
+        return acc;
+    }, [])
+
+    return splittedLines;
+}
+
+export function readStackedString(file) {
+    let buffer = readfile(file);
+    buffer = buffer.replace(/    /g, "[ ] ");
+
+    return buffer;
+}
+
